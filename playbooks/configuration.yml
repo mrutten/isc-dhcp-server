@@ -1,0 +1,7 @@
+---
+- name: ISC DHCP configuration
+  hosts: dhcpservers
+  become: true
+  gather_facts: true
+  roles:
+    - isc_dhcp_configuration

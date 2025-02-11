@@ -1,0 +1,20 @@
+---
+ansible_user: ansible
+ansible_ssh_private_key_file: ~/.ssh/id_ed25519
+ansible_remote_tmp: /tmp
+
+# /etc/dhcpd.conf variables
+domain_name: lab.binaryvision.nl
+domain_name_servers: ns.lab.binaryvision.nl
+authoritative: true
+subnet: 172.16.1.0
+netmask: 255.255.255.0
+range_start: 172.16.1.200
+range_end: 172.16.1.254
+routers: 172.16.1.1
+broadcast_address: 172.16.1.255
+default_lease_time: 600
+max_lease_time: 7200
+
+# /etc/default/isc-dhcp-server variables
+interfacesv4: ens18
