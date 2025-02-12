@@ -1,12 +1,25 @@
 ---
-- name: Copy dhcpd.conf
+- name: Copy dhcpd.conf to master
   ansible.builtin.template:
-    src: dhcpd.conf.j2
+    src: dhcpd.conf.master.j2
     dest: /etc/dhcp/dhcpd.conf
     force: true
     owner: root
     group: root
     mode: '0644'
+  when: "'master' in group_names"
+  notify:
+    - restart isc-dhcp-server
+
+- name: Copy dhcpd.conf to slave
+  ansible.builtin.template:
+    src: dhcpd.conf.slave.j2
+    dest: /etc/dhcp/dhcpd.conf
+    force: true
+    owner: root
+    group: root
+    mode: '0644'
+  when: "'slave' in group_names"
   notify:
     - restart isc-dhcp-server
 
@@ -23,8 +36,8 @@
 
 - name: Start and enable ISC DHCP
   ansible.builtin.systemd:
-    enabled: "{{ true if 'master' in group_names else false }}"
+    enabled: true
     name: isc-dhcp-server
-    state: "{{ 'started' if 'master' in group_names else 'stopped' }}"
+    state: started
   tags:
     - systemd-service
