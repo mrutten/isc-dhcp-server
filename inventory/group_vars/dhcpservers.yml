@@ -2,19 +2,20 @@
 # /etc/dhcpd.conf variables
 domain_name: lab.binaryvision.nl
 domain_name_servers: ns.lab.binaryvision.nl
+default_lease_time: 600
+max_lease_time: 7200
 subnet: 172.16.1.0
 netmask: 255.255.255.0
 range_start: 172.16.1.200
 range_end: 172.16.1.254
 routers: 172.16.1.1
 broadcast_address: 172.16.1.255
-default_lease_time: 600
-max_lease_time: 7200
 
 # failover variables
 master_address: ns1.lab.binaryvision.nl
 slave_address: ns2.lab.binaryvision.nl
-port: 647
+master_port: 647
+slave_port: 647
 max_response_delay: 60
 max_unacked_updates: 10
 mclt: 3600
@@ -27,4 +28,4 @@ omapi_algorithm: HMAC-SHA256
 omapi_secret: change-to-your-omapi-key
 
 # /etc/default/isc-dhcp-server variables
-interfacesv4: ens18
+interfacesv4: eth0
