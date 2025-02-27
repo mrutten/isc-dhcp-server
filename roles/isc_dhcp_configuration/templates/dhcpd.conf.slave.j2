@@ -19,9 +19,9 @@ max-lease-time {{ max_lease_time }};
 failover peer "dhcp-failover" {
     secondary;
     address {{ slave_address }};
-    port {{ port }};
+    port {{ slave_port }};
     peer address {{ master_address }};
-    peer port {{ port }};
+    peer port {{ master_port }};
     max-response-delay {{ max_response_delay }};
     max-unacked-updates {{ max_unacked_updates }};
 }

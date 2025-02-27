@@ -1,6 +1,6 @@
 ---
 - name: restart isc-dhcp-server
-  ansible.builtin.systemd:
+  ansible.builtin.service:
     enabled: true
     name: isc-dhcp-server
     state: restarted

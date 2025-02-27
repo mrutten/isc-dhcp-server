@@ -6,7 +6,7 @@
     force: true
     owner: root
     group: root
-    mode: '0644'
+    mode: "0644"
   when: "'master' in group_names"
   notify:
     - restart isc-dhcp-server
@@ -18,7 +18,7 @@
     force: true
     owner: root
     group: root
-    mode: '0644'
+    mode: "0644"
   when: "'slave' in group_names"
   notify:
     - restart isc-dhcp-server
@@ -30,14 +30,14 @@
     force: true
     owner: root
     group: root
-    mode: '0644'
+    mode: "0644"
   notify:
     - restart isc-dhcp-server
 
 - name: Start and enable ISC DHCP
-  ansible.builtin.systemd:
+  ansible.builtin.service:
     enabled: true
     name: isc-dhcp-server
     state: started
   tags:
-    - systemd-service
+    - service

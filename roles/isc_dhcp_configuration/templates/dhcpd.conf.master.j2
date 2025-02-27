@@ -19,9 +19,9 @@ authoritative;
 failover peer "dhcp-failover" {
     primary;
     address {{ master_address }};
-    port {{ port }};
+    port {{ master_port }};
     peer address {{ slave_address }};
-    peer port {{ port }};
+    peer port {{ slave_port }};
     max-response-delay {{ max_response_delay }};
     max-unacked-updates {{ max_unacked_updates }};
     # Maximum Client Lead Time, master only
