@@ -49,7 +49,7 @@ omapi-port {{ omapi_port }};
 
 key omapi_key {
     algorithm {{ omapi_algorithm }};
-    secret "{{ omapi_secret }}";
+    secret "{{ omapi_key }}";
 };
 
 omapi-key omapi_key;

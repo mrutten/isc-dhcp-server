@@ -25,7 +25,7 @@ load_balance_max_seconds: 3
 # OMAPI variables
 omapi_port: 7911
 omapi_algorithm: HMAC-SHA256
-omapi_secret: change-to-your-omapi-key
+omapi_key: "{{ lookup('env', 'OMAPI_KEY') }}"
 
 # /etc/default/isc-dhcp-server variables
 interfacesv4: eth0
