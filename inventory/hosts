@@ -1,9 +1,9 @@
 [dhcpservers]
-ns1  ansible_host=172.16.1.3
-ns2  ansible_host=172.16.1.4
+ns1
+ns2
 
 [master]
-ns1  ansible_host=172.16.1.3
+ns1
 
 [slave]
-ns2  ansible_host=172.16.1.4
+ns2
